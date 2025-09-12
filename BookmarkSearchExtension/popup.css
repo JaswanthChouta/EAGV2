@@ -1,0 +1,194 @@
+:root {
+  --body-bg: #f4f4f4;
+  --container-bg: #fff;
+  --text-color-primary: #333;
+  --text-color-secondary: #666;
+  --border-color: #ddd;
+  --link-color: #007bff;
+  --pinned-link-color: #28a745;
+  --hover-color: #eee;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-focus-shadow: rgba(0, 123, 255, 0.25);
+  --pin-button-color: #ccc;
+  --pin-button-pinned-color: #f0ad4e;
+}
+
+body.dark-theme {
+  --body-bg: #222;
+  --container-bg: #333;
+  --text-color-primary: #eee;
+  --text-color-secondary: #bbb;
+  --border-color: #555;
+  --link-color: #90caf9; /* Lighter blue for dark theme */
+  --pinned-link-color: #a5d6a7; /* Lighter green for dark theme */
+  --hover-color: #444;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --input-focus-shadow: rgba(144, 202, 249, 0.4);
+  --pin-button-color: #888;
+  --pin-button-pinned-color: #ffc107; /* Brighter yellow for dark theme */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg);
+  color: var(--text-color-primary); /* Apply default text color */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  padding: 15px;
+  background-color: var(--container-bg);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  position: relative; /* For positioning the toggle button */
+}
+
+h1 {
+  font-size: 1.2em;
+  color: var(--text-color-primary);
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#search-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  font-size: 1em;
+  box-sizing: border-box;
+  background-color: var(--container-bg); /* Match container background */
+  color: var(--text-color-primary); /* Match primary text color */
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
+}
+
+#results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#results li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#results li:last-child {
+  border-bottom: none;
+}
+
+#results li a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 0.95em;
+  display: block;
+  flex-grow: 1;
+  transition: color 0.3s;
+}
+
+#results li a:hover {
+  text-decoration: underline;
+}
+
+#results li span {
+  display: block;
+  font-size: 0.8em;
+  color: var(--text-color-secondary);
+  margin-top: 2px;
+}
+
+/* Styles for pinning feature */
+.pin-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--pin-button-color);
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+.pin-button.pinned {
+  color: var(--pin-button-pinned-color); /* A color to indicate it's pinned */
+}
+
+#pinned-results {
+  margin-top: 20px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+#pinned-results h2 {
+  font-size: 1em;
+  color: var(--text-color-primary);
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#pinned-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#pinned-list li {
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pinned-list li:last-child {
+  border-bottom: none;
+}
+
+#pinned-list li a {
+  color: var(--pinned-link-color); /* A distinct color for pinned links */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Theme toggle button styling */
+.theme-toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--container-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: var(--text-color-primary);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  z-index: 10;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--hover-color);
+}
