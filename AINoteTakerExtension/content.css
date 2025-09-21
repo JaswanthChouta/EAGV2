@@ -1,0 +1,26 @@
+/* content.css - Styles for content script elements */
+
+.ai-note-button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.01em !important;
+}
+
+.ai-note-button:hover {
+  transform: translateY(-1px) !important;
+}
+
+.ai-note-button:active {
+  transform: translateY(0) !important;
+}
+
+#ai-note-taker-sidebar {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Ensure sidebar doesn't interfere with page content */
+#ai-note-overlay {
+  backdrop-filter: blur(2px);
+}
